@@ -1,22 +1,28 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("jvm") version "1.9.25"
-    kotlin("plugin.spring") version "1.9.25"
-    id("org.springframework.boot") version "3.4.0"
-    id("io.spring.dependency-management") version "1.1.6"
+    kotlin("plugin.spring") version "1.9.25" apply false
+    id("org.springframework.boot") version "3.4.0" apply false
+    id("io.spring.dependency-management") version "1.1.6" apply false
 }
 
 allprojects {
     group = "me.daegyeo.kafkarssfeed"
     version = "0.0.1-SNAPSHOT"
 
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(17)
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "17"
         }
     }
-
     repositories {
         mavenCentral()
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
     }
 }
 
@@ -34,15 +40,4 @@ subprojects {
         testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
         testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     }
-
-    kotlin {
-        compilerOptions {
-            freeCompilerArgs.addAll("-Xjsr305=strict")
-        }
-    }
-
-    tasks.withType<Test> {
-        useJUnitPlatform()
-    }
-
 }
