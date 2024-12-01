@@ -1,3 +1,5 @@
 spring:
   application:
     name: kafka-rss-feed-rss-producer
+  kafka:
+    bootstrap-servers: localhost:9092
