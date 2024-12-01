@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class FetchRssService : FetchRssUseCase {
-    override fun fetchRss(link: String) {
         // TODO
+    override fun fetchRss(url: String) {
     }
 }
