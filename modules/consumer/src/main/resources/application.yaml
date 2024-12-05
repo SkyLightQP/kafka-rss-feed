@@ -1,0 +1,11 @@
+spring:
+    application:
+        name: kafka-rss-feed-consumer
+    kafka:
+        bootstrap-servers: localhost:9092
+        consumer:
+            group-id: rss-feed-consumer-group
+            auto-offset-reset: earliest
+
+
+
