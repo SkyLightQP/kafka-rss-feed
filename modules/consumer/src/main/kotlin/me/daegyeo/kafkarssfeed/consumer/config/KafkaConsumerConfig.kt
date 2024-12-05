@@ -1,4 +1,4 @@
-package me.daegyeo.kafkarssfeed.rssproducer.config
+package me.daegyeo.kafkarssfeed.consumer.config
 
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.common.serialization.StringSerializer
