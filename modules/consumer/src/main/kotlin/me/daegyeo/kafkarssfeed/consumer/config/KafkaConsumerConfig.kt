@@ -11,7 +11,6 @@ import org.springframework.kafka.core.ConsumerFactory
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory
 import org.springframework.kafka.support.serializer.JsonDeserializer
 
-
 @EnableKafka
 @Configuration
 class KafkaConsumerConfig {
@@ -27,7 +26,8 @@ class KafkaConsumerConfig {
             ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG to bootstrapServers,
             ConsumerConfig.GROUP_ID_CONFIG to groupId,
             ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG to StringDeserializer::class.java,
-            ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG to JsonDeserializer::class.java
+            ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG to JsonDeserializer::class.java,
+            JsonDeserializer.TRUSTED_PACKAGES to "*"
         )
         return DefaultKafkaConsumerFactory(configProps)
     }
