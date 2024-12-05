@@ -1,3 +1,5 @@
+server:
+    port: 8081
 spring:
     application:
         name: kafka-rss-feed-consumer
@@ -6,6 +8,3 @@ spring:
         consumer:
             group-id: rss-feed-consumer-group
             auto-offset-reset: earliest
-
-
-
