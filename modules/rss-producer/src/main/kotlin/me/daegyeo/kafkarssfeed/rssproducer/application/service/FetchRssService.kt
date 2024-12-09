@@ -2,8 +2,6 @@ package me.daegyeo.kafkarssfeed.rssproducer.application.service
 
 import me.daegyeo.kafkarssfeed.rssproducer.application.domain.RssArticle
 import me.daegyeo.kafkarssfeed.rssproducer.application.port.`in`.FetchRssUseCase
-import me.daegyeo.kafkarssfeed.rssproducer.application.port.out.KafkaProducerPort
-import me.daegyeo.kafkarssfeed.rssproducer.constant.Topic
 import org.jsoup.Jsoup
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
@@ -12,7 +10,7 @@ import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
 @Service
-class FetchRssService(private val kafkaProducerPort: KafkaProducerPort) : FetchRssUseCase {
+class FetchRssService : FetchRssUseCase {
     override fun fetchRss(url: String): List<RssArticle> {
         val res = Jsoup.connect(url).get()
         val feed = res.select("channel > item")
@@ -25,7 +23,6 @@ class FetchRssService(private val kafkaProducerPort: KafkaProducerPort) : FetchR
 
             makeRssArticle(title, link, description, date)
         }
-        kafkaProducerPort.send(Topic.RSS.topic, result)
         return result
     }
 
