@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 class RssArticlePersistenceAdapter(
     private val rssArticleRepository: RssArticleRepository
 ) : SaveRssArticlePort {
-    
+
     override fun saveRssArticle(article: RssArticle) {
         val entity = RssArticleEntity(
             title = article.title,
