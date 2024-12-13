@@ -10,3 +10,6 @@
 - [x] 헥사고날 아키텍처를 적용해야 합니다.
 - [x] Kotlin MultiModule을 적용하여 Producer와 Consumer를 분리해야 합니다.
 - [ ] RSS Feed 외의 웹 사이트 크롤러를 만들어 확장할 수 있어야 합니다.
+
+## 관련 프로젝트
+- [kafka-rss-feed-frontend](https://github.com/SkyLightQP/kafka-rss-feed-frontend)
